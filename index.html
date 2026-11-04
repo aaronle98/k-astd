@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Save the Date · Aaron &amp; Kim Le</title>
+<title>Save the Date · Aaron &amp; Kim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:wght@400;500&family=Pinyon+Script&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#FFFCF6;
@@ -22,12 +22,10 @@ body{
 }
 .glow{position:fixed;left:50%;top:52%;width:min(130vw,1150px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
   background:radial-gradient(circle,rgba(255,252,244,.95) 0%,rgba(255,250,238,.5) 32%,rgba(255,250,238,0) 64%);pointer-events:none}
-.bg-floral{position:fixed;width:clamp(200px,34vw,460px);pointer-events:none;opacity:.95;filter:drop-shadow(0 6px 10px rgba(60,80,55,.12))}
-.bg-floral.tl{left:-2.5%;top:-3%}
-.bg-floral.br{right:-2.5%;bottom:-3%;transform:rotate(180deg)}
-.bg-floral.tr{right:-4%;top:-5%;transform:scaleX(-1);width:clamp(120px,18vw,260px);opacity:.75}
-.bg-floral.bl{left:-4%;bottom:-5%;transform:scaleY(-1);width:clamp(120px,18vw,260px);opacity:.75}
-@media (max-aspect-ratio:4/5){.bg-floral.tr,.bg-floral.bl{display:none}.bg-floral.tl,.bg-floral.br{width:50vw}}
+.bg-floral{position:fixed;opacity:.92;width:clamp(220px,32vw,440px);pointer-events:none;filter:drop-shadow(0 6px 10px rgba(60,40,40,.12))}
+.bg-floral.tr{right:-1.5%;top:-2%}
+.bg-floral.bl{left:-1.5%;bottom:-2%;transform:rotate(180deg)}
+@media (max-aspect-ratio:4/5){.bg-floral{width:46vw}}
 
 .petals{position:fixed;inset:0;pointer-events:none;overflow:hidden}
 .petal{position:absolute;top:-30px;border-radius:150% 0 150% 0;opacity:.85;animation:fall linear infinite}
@@ -70,40 +68,25 @@ body{
 @keyframes glow{0%,100%{box-shadow:0 6px 14px -4px rgba(60,40,10,.5),inset 0 -3px 6px rgba(80,50,10,.35),inset 0 2px 3px rgba(255,240,210,.45),0 0 0 0 rgba(255,250,235,0)}
   50%{box-shadow:0 6px 14px -4px rgba(60,40,10,.5),inset 0 -3px 6px rgba(80,50,10,.35),inset 0 2px 3px rgba(255,240,210,.45),0 0 0 12px rgba(255,250,235,.4)}}
 
-.card{position:absolute;left:50%;top:50%;z-index:2;border-radius:3px;container-type:inline-size;
-  box-shadow:0 1px 2px rgba(40,60,35,.08),0 28px 60px -22px rgba(40,60,35,.4);will-change:transform;
-  background:radial-gradient(circle at 50% 42%,#FFFEFA 0%,#FFFBF3 68%,#F8F2E6 100%)}
-.frame{position:absolute;inset:3cqw;border:1px solid var(--gold)}
-.frame::after{content:"";position:absolute;inset:.9cqw;border:.5px solid rgba(194,163,107,.65)}
-.c-floral{position:absolute;width:27cqw;pointer-events:none}
-.c-floral.tl{left:.6cqw;top:.6cqw}
-.c-floral.br{right:.6cqw;bottom:.6cqw;transform:rotate(180deg)}
-.content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6cqw}
-.kicker{font-size:2.05cqw;letter-spacing:.5em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-right:-.5em}
-.names{font-family:'Pinyon Script',cursive;font-weight:400;font-size:8.2cqw;line-height:1.25;margin:1cqw 0 0;padding:0 .2em;color:var(--green);white-space:nowrap}
-.names .amp{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:.92em;color:var(--sage-d);padding:0 .12em;display:inline-block}
-.date{display:flex;align-items:center;gap:2.4cqw;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17.5cqw;line-height:1;color:var(--green);
-  font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;letter-spacing:.01em;margin-top:.5cqw}
-.date i{width:1.3cqw;height:1.3cqw;border-radius:50%;background:var(--blush);display:block}
-.divider{width:24cqw;height:auto;margin:2cqw 0 1.6cqw;display:block}
-.when,.where{font-size:1.95cqw;letter-spacing:.3em;text-transform:uppercase;margin-right:-.3em;color:var(--green)}
-.where{margin-top:1cqw;color:var(--sage-d);font-weight:500}
-.note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.5cqw;margin-top:1.6cqw;color:#6A7568}
-
-.card.portrait .frame{inset:3.6cqw}
-.card.portrait .frame::after{inset:1.2cqw}
-.card.portrait .c-floral{width:33cqw}
-.card.portrait .content{padding:9cqw 7cqw}
-.card.portrait .kicker{font-size:3.3cqw;margin-top:8cqw}
-.card.portrait .names{font-size:14cqw;line-height:1.12;margin:4cqw 0 3cqw}
-.card.portrait .names .ln{display:block}
-.card.portrait .date{font-size:21cqw;gap:2.6cqw}
-.card.portrait .date i{width:1.9cqw;height:1.9cqw}
-.card.portrait .divider{width:40cqw;margin:5cqw 0 4.5cqw}
-.card.portrait .when,.card.portrait .where{font-size:3.1cqw;letter-spacing:.24em;margin-right:-.24em}
-.card.portrait .where{margin-top:2.2cqw}
-.card.portrait .note{font-size:4.3cqw;margin-top:4cqw;margin-bottom:8cqw}
-
+.card{position:absolute;left:50%;top:50%;z-index:2;border-radius:3px;container-type:inline-size;overflow:hidden;
+  box-shadow:0 1px 2px rgba(40,40,40,.08),0 30px 60px -22px rgba(40,50,40,.42);will-change:transform;background:#FFFFFF;color:#2A2A2A}
+.c-floral{position:absolute;pointer-events:none}
+.c-floral.tr{right:-4cqw;top:-4cqw;width:62cqw}
+.c-floral.bl{left:-5cqw;bottom:-5cqw;width:46cqw;transform:rotate(180deg)}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding-top:31cqw}
+.content>*{flex-shrink:0}
+.std{font-family:'Playfair Display',serif;font-weight:400;font-size:13.2cqw;line-height:1;letter-spacing:.2em;margin-right:-.2em;color:#222}
+.the{display:flex;align-items:center;gap:2cqw;font-family:'Pinyon Script',cursive;font-size:8.4cqw;line-height:1;color:#333;margin:-.6cqw 0 -.4cqw}
+.the::before,.the::after{content:"";height:1px;width:15cqw;background:#3a3a3a;opacity:.75}
+.the::before{background:linear-gradient(90deg,transparent,#3a3a3a)}
+.the::after{background:linear-gradient(90deg,#3a3a3a,transparent)}
+.for{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:4cqw;margin-top:5.5cqw;color:#444}
+.names{font-family:'Playfair Display',serif;font-weight:400;font-size:6.6cqw;letter-spacing:.08em;margin-top:2.4cqw;color:#222;white-space:nowrap}
+.daterow{font-family:'Playfair Display',serif;font-size:5.6cqw;letter-spacing:.08em;margin-top:3.6cqw;color:#222;font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1}
+.year,.place{font-family:'Cormorant Garamond',serif;font-size:4cqw;color:#333;letter-spacing:.01em}
+.year{margin-top:4cqw}
+.place{margin-top:2.4cqw}
+.note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:4cqw;line-height:1.15;margin-top:3.6cqw;color:#444}
 .hint{position:absolute;left:0;right:0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.4vw,22px);color:var(--sage-dd)}
 .details{position:absolute;left:50%;transform:translateX(-50%);width:min(92vw,640px);text-align:center;opacity:0;visibility:hidden}
 .count{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,3vw,27px);color:var(--green);font-variant-numeric:lining-nums}
@@ -120,130 +103,77 @@ body{
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="leaf" viewBox="0 0 40 100">
-      <path d="M20 100 C 2 72 0 34 20 0 C 40 34 38 72 20 100Z"/>
-      <path d="M20 96 Q 21 50 20 6" stroke="rgba(255,255,255,.35)" stroke-width="1.2" fill="none"/>
-    </symbol>
-    <symbol id="rose" viewBox="-50 -50 100 100">
-      <g fill="#F4DDD6" stroke="#E2BEB5" stroke-width=".9">
-        <ellipse cx="0" cy="-27" rx="20" ry="22"/><ellipse cx="0" cy="-27" rx="20" ry="22" transform="rotate(60)"/>
-        <ellipse cx="0" cy="-27" rx="20" ry="22" transform="rotate(120)"/><ellipse cx="0" cy="-27" rx="20" ry="22" transform="rotate(180)"/>
-        <ellipse cx="0" cy="-27" rx="20" ry="22" transform="rotate(240)"/><ellipse cx="0" cy="-27" rx="20" ry="22" transform="rotate(300)"/>
-      </g>
-      <g fill="#EDC6BE" stroke="#D9ABA2" stroke-width=".9">
-        <ellipse cx="0" cy="-15" rx="15" ry="16" transform="rotate(30)"/><ellipse cx="0" cy="-15" rx="15" ry="16" transform="rotate(102)"/>
-        <ellipse cx="0" cy="-15" rx="15" ry="16" transform="rotate(174)"/><ellipse cx="0" cy="-15" rx="15" ry="16" transform="rotate(246)"/>
-        <ellipse cx="0" cy="-15" rx="15" ry="16" transform="rotate(318)"/>
-      </g>
-      <circle r="13" fill="#E2AEA6"/>
-      <path d="M-7 2 C -8 -8 6 -10 7 -2 C 8 5 -2 8 -3 2 C -4 -3 3 -4 2 0" stroke="#BF857D" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="bud" viewBox="-50 -50 100 100">
-      <g fill="#E9BFB7" stroke="#D3A198" stroke-width="1">
-        <ellipse cx="0" cy="-22" rx="19" ry="22"/><ellipse cx="0" cy="-22" rx="19" ry="22" transform="rotate(72)"/>
-        <ellipse cx="0" cy="-22" rx="19" ry="22" transform="rotate(144)"/><ellipse cx="0" cy="-22" rx="19" ry="22" transform="rotate(216)"/>
-        <ellipse cx="0" cy="-22" rx="19" ry="22" transform="rotate(288)"/>
-      </g>
-      <circle r="15" fill="#DDA39A"/>
-      <path d="M-6 3 C -7 -7 6 -8 6 -1 C 6 5 -1 6 -2 1" stroke="#B5776F" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="blossom" viewBox="-50 -50 100 100">
-      <g fill="#FFFAF2" stroke="#E6D8C4" stroke-width="1.4">
-        <circle cx="0" cy="-24" r="20"/><circle cx="0" cy="-24" r="20" transform="rotate(72)"/>
-        <circle cx="0" cy="-24" r="20" transform="rotate(144)"/><circle cx="0" cy="-24" r="20" transform="rotate(216)"/>
-        <circle cx="0" cy="-24" r="20" transform="rotate(288)"/>
-      </g>
-      <circle r="10" fill="#E3C78F"/><circle r="5" fill="#CFAE6E"/>
-    </symbol>
-    <g id="bouquet">
-<path d="M18.0 18.0 Q136.5 8.2 252.4 34.4" stroke="#7E9677" stroke-width="1.6" fill="none"/>
-<circle cx="71.1" cy="6.8" r="9.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="96.1" cy="23.6" r="9.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="123.3" cy="8.9" r="8.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="148.4" cy="25.1" r="7.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="175.3" cy="14.7" r="7.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="200.4" cy="30.2" r="6.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="227.0" cy="23.9" r="5.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="252.1" cy="38.9" r="5.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<path d="M18.0 18.0 Q8.2 136.5 34.4 252.4" stroke="#7E9677" stroke-width="1.6" fill="none"/>
-<circle cx="24.1" cy="69.9" r="9.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="7.4" cy="97.3" r="9.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="23.9" cy="122.3" r="8.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="11.4" cy="149.3" r="7.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="27.2" cy="174.4" r="7.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="18.9" cy="201.2" r="6.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="34.1" cy="226.3" r="5.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="29.9" cy="252.7" r="5.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<path d="M18.0 18.0 Q105.3 56.8 182.5 113.0" stroke="#7E9677" stroke-width="1.6" fill="none"/>
-<circle cx="60.6" cy="28.6" r="9.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="71.0" cy="52.8" r="9.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="97.4" cy="49.5" r="8.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="108.4" cy="72.5" r="7.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="133.1" cy="72.0" r="7.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="144.9" cy="93.8" r="6.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="167.8" cy="96.3" r="5.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="180.3" cy="116.9" r="5.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<path d="M18.0 18.0 Q56.8 105.3 113.0 182.5" stroke="#7E9677" stroke-width="1.6" fill="none"/>
-<circle cx="43.7" cy="51.9" r="9.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="38.8" cy="79.1" r="9.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="62.4" cy="89.9" r="8.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="60.5" cy="115.3" r="7.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="82.9" cy="126.8" r="7.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="84.0" cy="150.6" r="6.3" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="105.2" cy="162.7" r="5.7" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<circle cx="109.1" cy="184.8" r="5.0" fill="#A9BCB0" stroke="#8EA597" stroke-width=".8"/>
-<use href="#leaf" width="28.0" height="70.0" fill="#8FA588" opacity="1" transform="translate(84.0,15.7) rotate(88.0) translate(-14.0,-70.0)"/>
-<use href="#leaf" width="24.8" height="62.0" fill="#6F8868" opacity="1" transform="translate(98.0,38.0) rotate(104.0) translate(-12.4,-62.0)"/>
-<use href="#leaf" width="25.6" height="64.0" fill="#A3B79A" opacity="1" transform="translate(66.4,37.6) rotate(112.0) translate(-12.8,-64.0)"/>
-<use href="#leaf" width="23.2" height="58.0" fill="#8FA588" opacity="1" transform="translate(79.3,73.2) rotate(132.0) translate(-11.6,-58.0)"/>
-<use href="#leaf" width="26.4" height="66.0" fill="#6F8868" opacity="1" transform="translate(59.7,67.7) rotate(140.0) translate(-13.2,-66.0)"/>
-<use href="#leaf" width="25.6" height="64.0" fill="#A3B79A" opacity="1" transform="translate(37.8,67.0) rotate(158.0) translate(-12.8,-64.0)"/>
-<use href="#leaf" width="24.8" height="62.0" fill="#6F8868" opacity="1" transform="translate(38.0,98.0) rotate(166.0) translate(-12.4,-62.0)"/>
-<use href="#leaf" width="28.0" height="70.0" fill="#8FA588" opacity="1" transform="translate(15.7,84.0) rotate(182.0) translate(-14.0,-70.0)"/>
-<use href="#leaf" width="23.2" height="58.0" fill="#7E9677" opacity="1" transform="translate(56.1,23.4) rotate(98.0) translate(-11.6,-58.0)"/>
-<use href="#leaf" width="23.2" height="58.0" fill="#7E9677" opacity="1" transform="translate(23.4,56.1) rotate(172.0) translate(-11.6,-58.0)"/>
-<circle cx="92.3" cy="59.4" r="3.0" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="140.8" cy="32.0" r="2.6" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="138.2" cy="29.0" r="2.1" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="77.8" cy="66.5" r="2.1" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="138.0" cy="112.4" r="2.2" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="142.7" cy="63.6" r="3.5" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="85.6" cy="104.3" r="3.6" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="173.4" cy="29.4" r="2.5" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="97.7" cy="36.4" r="2.5" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="43.1" cy="102.4" r="2.9" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="75.6" cy="108.4" r="2.9" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="93.6" cy="25.5" r="2.3" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="72.3" cy="116.8" r="2.5" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="87.9" cy="109.7" r="2.5" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="62.4" cy="150.7" r="2.4" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="93.9" cy="114.1" r="3.4" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="58.7" cy="108.0" r="3.6" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="127.9" cy="38.6" r="3.2" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="133.5" cy="46.1" r="2.1" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="90.9" cy="145.0" r="2.9" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="37.7" cy="117.4" r="3.1" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="94.1" cy="120.9" r="2.7" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="58.9" cy="177.3" r="2.8" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="56.3" cy="83.7" r="3.1" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="107.1" cy="162.0" r="3.3" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<circle cx="115.9" cy="64.9" r="3.1" fill="#FFFDF8" stroke="#E7DCCB" stroke-width=".6"/>
-<use href="#bud" width="58" height="58" transform="translate(121.0,15.0) rotate(20 29.0 29.0)"/>
-<use href="#bud" width="58" height="58" transform="translate(15.0,121.0) rotate(-30 29.0 29.0)"/>
-<use href="#blossom" width="40" height="40" transform="translate(98.0,90.0) rotate(0 20.0 20.0)"/>
-<use href="#rose" width="104" height="104" transform="translate(20.0,20.0) rotate(12 52.0 52.0)"/>
-<use href="#blossom" width="30" height="30" transform="translate(150.0,75.0) rotate(40 15.0 15.0)"/>
-<use href="#blossom" width="30" height="30" transform="translate(77.0,153.0) rotate(10 15.0 15.0)"/>
 
+<radialGradient id="bo" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="50"><stop offset="0" stop-color="#E4A99B"/><stop offset=".55" stop-color="#F1CEC4"/><stop offset="1" stop-color="#FCEDE8"/></radialGradient>
+<radialGradient id="bi" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="28"><stop offset="0" stop-color="#D08A7A"/><stop offset="1" stop-color="#F2CCC1"/></radialGradient>
+<radialGradient id="ro" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="50"><stop offset="0" stop-color="#4E0B1A"/><stop offset=".5" stop-color="#7A1A2E"/><stop offset="1" stop-color="#A9404F"/></radialGradient>
+<radialGradient id="ri" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="28"><stop offset="0" stop-color="#3F0814"/><stop offset="1" stop-color="#8B2537"/></radialGradient>
+<radialGradient id="po" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="50"><stop offset="0" stop-color="#7C1427"/><stop offset=".6" stop-color="#A3283D"/><stop offset="1" stop-color="#C4505F"/></radialGradient>
+<radialGradient id="pi" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="28"><stop offset="0" stop-color="#5C0C1C"/><stop offset="1" stop-color="#9A2438"/></radialGradient>
+
+<symbol id="leaf" viewBox="0 0 40 100"><path d="M20 100 C 2 72 0 34 20 0 C 40 34 38 72 20 100Z"/><path d="M20 96 Q 21 50 20 6" stroke="rgba(255,255,255,.3)" stroke-width="1.2" fill="none"/></symbol>
+<symbol id="roseBlush" viewBox="-50 -50 100 100">
+<ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(0.0)" fill="url(#bo)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(51.4)" fill="url(#bo)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(102.9)" fill="url(#bo)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(154.3)" fill="url(#bo)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(205.7)" fill="url(#bo)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(257.1)" fill="url(#bo)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(308.6)" fill="url(#bo)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/>
+<ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(25.0)" fill="url(#bi)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(97.0)" fill="url(#bi)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(169.0)" fill="url(#bi)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(241.0)" fill="url(#bi)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(313.0)" fill="url(#bi)" stroke="#C98C7E" stroke-width=".8" stroke-opacity=".55" opacity="1"/>
+<circle r="12.5" fill="url(#bi)"/>
+<g fill="none" stroke="#B9766A" stroke-linecap="round" stroke-opacity=".75">
+<path d="M-15 4 Q0 -18 15 4" stroke-width="1.6"/><path d="M-10 -1 Q0 10 10 -1" stroke-width="1.4"/>
+<path d="M-6 -5 Q0 -10 6 -5" stroke-width="1.3"/><path d="M-18 10 Q0 22 18 10" stroke-width="1.2"/>
+</g></symbol><symbol id="roseBurg" viewBox="-50 -50 100 100">
+<ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(0.0)" fill="url(#ro)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(51.4)" fill="url(#ro)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(102.9)" fill="url(#ro)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(154.3)" fill="url(#ro)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(205.7)" fill="url(#ro)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(257.1)" fill="url(#ro)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-25" rx="20" ry="22" transform="rotate(308.6)" fill="url(#ro)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/>
+<ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(25.0)" fill="url(#ri)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(97.0)" fill="url(#ri)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(169.0)" fill="url(#ri)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(241.0)" fill="url(#ri)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/><ellipse cx="0" cy="-14" rx="15" ry="15" transform="rotate(313.0)" fill="url(#ri)" stroke="#3A0610" stroke-width=".8" stroke-opacity=".55" opacity="1"/>
+<circle r="12.5" fill="url(#ri)"/>
+<g fill="none" stroke="#C2596A" stroke-linecap="round" stroke-opacity=".75">
+<path d="M-15 4 Q0 -18 15 4" stroke-width="1.6"/><path d="M-10 -1 Q0 10 10 -1" stroke-width="1.4"/>
+<path d="M-6 -5 Q0 -10 6 -5" stroke-width="1.3"/><path d="M-18 10 Q0 22 18 10" stroke-width="1.2"/>
+</g></symbol><symbol id="peony" viewBox="-50 -50 100 100"><circle cx="27.0" cy="0.0" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="22.6" cy="14.7" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="11.0" cy="24.7" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-4.2" cy="26.7" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-18.1" cy="20.1" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-26.1" cy="7.0" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-25.7" cy="-8.3" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-17.0" cy="-21.0" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-2.8" cy="-26.9" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="12.3" cy="-24.1" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="23.4" cy="-13.5" r="15.5" fill="url(#po)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="15.5" cy="4.1" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="8.0" cy="13.9" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-4.1" cy="15.5" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-13.9" cy="8.0" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-15.5" cy="-4.1" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="-8.0" cy="-13.9" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="4.1" cy="-15.5" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/><circle cx="13.9" cy="-8.0" r="12" fill="url(#pi)" stroke="#5A0A1A" stroke-width=".8" stroke-opacity=".5"/>
+<circle r="10" fill="url(#pi)"/>
+<g fill="none" stroke="#D47584" stroke-width="1.3" stroke-linecap="round" stroke-opacity=".7">
+<path d="M-8 2 Q-2 -9 8 -2"/><path d="M-5 6 Q4 8 7 3"/><path d="M-20 -6 Q-14 -18 -2 -20"/><path d="M20 8 Q16 20 4 22"/></g></symbol>
+<symbol id="berries" viewBox="-30 -30 60 60"><g stroke="#55684F" stroke-width="1" fill="none"><path d="M0 28 Q-2 10 -12 -6"/><path d="M0 28 Q2 8 10 -10"/><path d="M0 28 Q-1 6 -2 -16"/><path d="M0 28 Q8 14 18 4"/></g>
+<g fill="#2D3D63"><circle cx="-12" cy="-8" r="5"/><circle cx="10" cy="-12" r="5.5"/><circle cx="-2" cy="-18" r="4.5"/><circle cx="18" cy="2" r="4.5"/><circle cx="-16" cy="2" r="3.8"/><circle cx="4" cy="-3" r="4"/></g>
+<g fill="#7D90B8" opacity=".55"><circle cx="-13.5" cy="-9.5" r="1.6"/><circle cx="8.5" cy="-13.5" r="1.7"/><circle cx="-3.3" cy="-19.3" r="1.4"/><circle cx="16.6" cy=".6" r="1.4"/><circle cx="2.8" cy="-4.3" r="1.3"/></g></symbol>
+<symbol id="bud" viewBox="-20 -30 40 60"><path d="M0 30 Q1 15 0 4" stroke="#55684F" stroke-width="1.4" fill="none"/>
+<ellipse cx="0" cy="-6" rx="9" ry="13" fill="url(#ri)"/><path d="M-9 0 Q-4 -4 0 6 Q4 -4 9 0 Q6 8 0 10 Q-6 8 -9 0Z" fill="#6E8B6A"/></symbol>
+
+    <g id="spray">
+<path d="M250.0 50.0 Q179.1 77.3 103.3 81.2" stroke="#7E9A8F" stroke-width="1.5" fill="none"/><circle cx="219.9" cy="68.6" r="8.7" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="200.7" cy="58.6" r="8.0" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="187.4" cy="76.1" r="7.3" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="168.5" cy="67.3" r="6.7" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="154.4" cy="81.3" r="6.0" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="135.7" cy="73.6" r="5.3" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="120.9" cy="84.1" r="4.7" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="102.5" cy="77.7" r="4.0" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/>
+<path d="M262.0 80.0 Q227.4 147.6 215.6 222.7" stroke="#7E9A8F" stroke-width="1.5" fill="none"/><circle cx="255.2" cy="112.8" r="8.7" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="234.6" cy="123.7" r="8.0" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="242.0" cy="143.6" r="7.3" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="224.9" cy="155.6" r="6.7" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="231.2" cy="175.1" r="6.0" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="217.4" cy="188.2" r="5.3" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="222.5" cy="207.4" r="4.7" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/><circle cx="212.2" cy="221.5" r="4.0" fill="#A3BBB1" stroke="#7E9A8F" stroke-width=".7" opacity=".95"/>
+<use href="#leaf" width="22.0" height="58.0" fill="#5E7A5C" opacity="1" transform="translate(194.7,93.2) rotate(240.0) translate(-11.0,-58.0)"/>
+<use href="#leaf" width="26.6" height="70.0" fill="#7C9877" opacity="1" transform="translate(180.8,87.6) rotate(252.0) translate(-13.3,-70.0)"/>
+<use href="#leaf" width="31.2" height="82.0" fill="#9DB497" opacity="1" transform="translate(167.8,75.9) rotate(265.0) translate(-15.6,-82.0)"/>
+<use href="#leaf" width="22.0" height="58.0" fill="#476447" opacity="1" transform="translate(157.8,59.1) rotate(278.0) translate(-11.0,-58.0)"/>
+<use href="#leaf" width="26.6" height="70.0" fill="#B4C7AE" opacity="1" transform="translate(191.3,54.1) rotate(290.0) translate(-13.3,-70.0)"/>
+<use href="#leaf" width="31.2" height="82.0" fill="#5E7A5C" opacity="1" transform="translate(186.7,39.8) rotate(302.0) translate(-15.6,-82.0)"/>
+<use href="#leaf" width="22.0" height="58.0" fill="#7C9877" opacity="1" transform="translate(187.3,117.7) rotate(225.0) translate(-11.0,-58.0)"/>
+<use href="#leaf" width="26.6" height="70.0" fill="#9DB497" opacity="1" transform="translate(193.7,136.1) rotate(212.0) translate(-13.3,-70.0)"/>
+<use href="#leaf" width="31.2" height="82.0" fill="#476447" opacity="1" transform="translate(219.1,113.7) rotate(200.0) translate(-15.6,-82.0)"/>
+<use href="#leaf" width="22.0" height="58.0" fill="#B4C7AE" opacity="1" transform="translate(227.1,126.4) rotate(188.0) translate(-11.0,-58.0)"/>
+<use href="#leaf" width="26.6" height="70.0" fill="#5E7A5C" opacity="1" transform="translate(237.4,137.5) rotate(178.0) translate(-13.3,-70.0)"/>
+<use href="#leaf" width="31.2" height="82.0" fill="#7C9877" opacity="1" transform="translate(179.8,14.8) rotate(315.0) translate(-15.6,-82.0)"/>
+<use href="#leaf" width="22.0" height="58.0" fill="#9DB497" opacity="1" transform="translate(211.7,29.7) rotate(330.0) translate(-11.0,-58.0)"/>
+<use href="#leaf" width="26.6" height="70.0" fill="#476447" opacity="1" transform="translate(191.3,106.6) rotate(230.0) translate(-13.3,-70.0)"/>
+<use href="#leaf" width="31.2" height="82.0" fill="#B4C7AE" opacity="1" transform="translate(169.8,52.5) rotate(285.0) translate(-15.6,-82.0)"/>
+<use href="#berries" width="46" height="46" transform="translate(95.0,69.0) rotate(-50 23.0 23)"/>
+<use href="#berries" width="44" height="44" transform="translate(214.0,174.0) rotate(25 22.0 22)"/>
+<use href="#berries" width="36" height="36" transform="translate(168.0,122.0) rotate(-20 18.0 18)"/>
+<use href="#berries" width="36" height="36" transform="translate(122.0,2.0) rotate(-80 18.0 18)"/>
+<use href="#bud" width="24" height="36" transform="translate(88.0,32.0) rotate(-70 12.0 18)"/>
+<use href="#bud" width="22" height="33" transform="translate(275.0,219.5) rotate(15 11.0 16)"/>
+<use href="#roseBlush" width="78" height="78" transform="translate(251.0,-9.0) rotate(15 39.0 39)"/>
+<use href="#roseBurg" width="88" height="88" transform="translate(224.0,96.0) rotate(-20 44.0 44)"/>
+<use href="#roseBlush" width="84" height="84" transform="translate(110.0,24.0) rotate(40 42.0 42)"/>
+<use href="#peony" width="118" height="118" transform="translate(157.0,-1.0) rotate(10 59.0 59)"/>
+<use href="#roseBurg" width="54" height="54" transform="translate(145.0,-13.0) rotate(0 27.0 27)"/>
+<use href="#roseBlush" width="54" height="54" transform="translate(263.0,173.0) rotate(60 27.0 27)"/>
+<use href="#roseBurg" width="40" height="40" transform="translate(185.0,108.0) rotate(30 20.0 20)"/>
     </g>
   </defs>
 </svg>
 
 <div class="glow" aria-hidden="true"></div>
-<svg class="bg-floral tl" viewBox="0 0 270 270" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bg-floral tr" viewBox="0 0 270 270" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bg-floral bl" viewBox="0 0 270 270" aria-hidden="true"><use href="#bouquet"/></svg>
-<svg class="bg-floral br" viewBox="0 0 270 270" aria-hidden="true"><use href="#bouquet"/></svg>
+<svg class="bg-floral tr" viewBox="0 0 300 300" aria-hidden="true"><use href="#spray"/></svg>
+<svg class="bg-floral bl" viewBox="0 0 300 300" aria-hidden="true"><use href="#spray"/></svg>
 <div class="petals" id="petals" aria-hidden="true"></div>
 
 <main class="stage" id="stage">
@@ -272,32 +202,24 @@ body{
         <use href="#leaf" width="22" height="56" fill="#A3B79A" transform="rotate(-30) translate(-11,-58)"/>
         <use href="#leaf" width="22" height="56" fill="#6F8868" transform="rotate(62) translate(-11,-60)"/>
         <use href="#leaf" width="22" height="56" fill="#A3B79A" transform="rotate(30) translate(-11,-58)"/>
-        <use href="#blossom" width="26" height="26" transform="translate(-58,-6)"/>
-        <use href="#bud" width="28" height="28" transform="translate(32,-8)"/>
+        <use href="#roseBlush" width="30" height="30" transform="translate(-62,-8)"/>
+        <use href="#roseBurg" width="30" height="30" transform="translate(32,-10)"/>
       </svg>
       <button class="seal" id="seal" aria-label="Open the envelope"><span>A&amp;K</span></button>
     </div>
 
-    <article class="card" id="card" aria-label="Save the date card">
-      <div class="frame"></div>
-      <svg class="c-floral tl" viewBox="0 0 270 270" aria-hidden="true"><use href="#bouquet"/></svg>
-      <svg class="c-floral br" viewBox="0 0 270 270" aria-hidden="true"><use href="#bouquet"/></svg>
+    <article class="card" id="card" aria-label="Save the date: Aaron and Kim, 23 October 2027, Orange County, California">
+      <svg class="c-floral tr" viewBox="0 0 300 300" aria-hidden="true"><use href="#spray"/></svg>
+      <svg class="c-floral bl" viewBox="0 0 300 300" aria-hidden="true"><use href="#spray"/></svg>
       <div class="content">
-        <p class="kicker">Save the Date</p>
-        <h1 class="names"><span class="ln">Aaron <span class="amp">&amp;</span></span> <span class="ln">Kim Le</span></h1>
-        <div class="date" aria-label="October 23, 2027"><span>10</span><i></i><span>23</span><i></i><span>27</span></div>
-        <svg class="divider" viewBox="0 0 160 30" aria-hidden="true">
-          <line x1="2" y1="15" x2="52" y2="15" stroke="#C2A36B" stroke-width="1"/>
-          <line x1="108" y1="15" x2="158" y2="15" stroke="#C2A36B" stroke-width="1"/>
-          <use href="#leaf" width="10" height="24" fill="#8FA588" transform="translate(80,15) rotate(-118) translate(-5,-24)"/>
-          <use href="#leaf" width="10" height="24" fill="#8FA588" transform="translate(80,15) rotate(118) translate(-5,-24)"/>
-          <use href="#leaf" width="9" height="20" fill="#A3B79A" transform="translate(80,15) rotate(-70) translate(-4.5,-20)"/>
-          <use href="#leaf" width="9" height="20" fill="#A3B79A" transform="translate(80,15) rotate(70) translate(-4.5,-20)"/>
-          <use href="#rose" width="22" height="22" x="69" y="4"/>
-        </svg>
-        <p class="when">Saturday · October 23, 2027</p>
-        <p class="where">Orange County, California</p>
-        <p class="note">Formal invitation to follow</p>
+        <p class="std">SAVE</p>
+        <p class="the">the</p>
+        <p class="std">DATE</p>
+        <p class="for">for the wedding of</p>
+        <h1 class="names">Aaron &amp; Kim</h1>
+        <p class="daterow">23 October 2027</p>
+                <p class="place">Orange County, California</p>
+        <p class="note">Formal invitation<br>to follow</p>
       </div>
     </article>
   </div>
@@ -308,7 +230,7 @@ body{
     <p class="count"><strong id="days">—</strong><span id="daysLabel">days to go</span></p>
     <div class="actions">
       <a class="btn" target="_blank" rel="noopener"
-         href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Aaron%20%26%20Kim%20Le%20%E2%80%94%20Wedding&amp;dates=20271023%2F20271024&amp;location=Orange%20County%2C%20California&amp;details=Save%20the%20date!%20Formal%20invitation%20to%20follow.">Add to calendar</a>
+         href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Aaron%20%26%20Kim%20%E2%80%94%20Wedding&amp;dates=20271023%2F20271024&amp;location=Orange%20County%2C%20California&amp;details=Save%20the%20date!%20Formal%20invitation%20to%20follow.">Add to calendar</a>
       <button class="btn ghost" id="replay">Replay</button>
     </div>
   </section>
@@ -332,11 +254,10 @@ body{
     const ecx = vw / 2, ecy = vh * 0.57;
     Object.assign(env.style, { width: E + 'px', height: Eh + 'px', left: (ecx - E / 2) + 'px', top: (ecy - Eh / 2) + 'px' });
 
-    const portrait = vw / vh < 0.8;
-    card.classList.toggle('portrait', portrait);
-    let Cw, Ch, s0, h0;
+    const portrait = true;
+        let Cw, Ch, s0, h0;
     if (portrait) {
-      Cw = Math.min(vw * 0.86, (vh * 0.7) / 1.4); Ch = Cw * 1.4;
+      Cw = Math.min(vw * 0.86, (vh * 0.74) / 1.4, 500); Ch = Cw * 1.4;
       s0 = Math.min((E * 0.9) / Ch, (Eh * 0.88) / Cw); h0 = Cw * s0;
     } else {
       Cw = Math.min(vw * 0.92, 740, vh * 0.6 * 1.4); Ch = Cw / 1.4;
@@ -410,7 +331,7 @@ body{
 
   // A soft burst of petals from the card's edge as it lands
   function burst() {
-    const colors = ['#EBC3BC', '#D9A7A0', '#B7C6AF', '#9CAF94', '#FFF8EE', '#E3C78F'];
+    const colors = ['#F1CEC4', '#E4A99B', '#8B2537', '#B7C6AF', '#FFFFFF', '#2D3D63'];
     const n = 34;
     for (let i = 0; i < n; i++) {
       const s = document.createElement('span');
@@ -431,7 +352,7 @@ body{
 
   function petals() {
     if (reduce) return;
-    const box = $('petals'), colors = ['#EBC3BC', '#E2B1A9', '#F6E1DB', '#C9D5C2', '#FFF8EE'];
+    const box = $('petals'), colors = ['#F1CEC4', '#E4A99B', '#F8E3DD', '#A63A4C', '#C9D5C2'];
     const n = window.innerWidth < 600 ? 10 : 18;
     for (let i = 0; i < n; i++) {
       const p = document.createElement('span');
