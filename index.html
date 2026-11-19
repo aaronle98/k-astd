@@ -102,7 +102,6 @@ body{
 .btn:hover{transform:translateY(-1px)}
 .btn.ghost{background:rgba(255,253,246,.6);color:var(--sage-dd)}
 .btn.ghost:hover{background:rgba(255,253,246,.95)}
-.spark{position:absolute;pointer-events:none;z-index:20;border-radius:150% 0 150% 0}
 </style>
 </head>
 <body>
@@ -382,47 +381,10 @@ body{
     state = 'open';
     card.style.transform = tf(L.end);
     parts.style.visibility = 'hidden';
-    burst();
     startPetalShower();
     details.style.visibility = 'visible';
     run(details, [{ opacity: 0, transform: 'translate(-50%,12px)' }, { opacity: 1, transform: 'translate(-50%,0)' }],
         { duration: 700, delay: 150, easing: 'ease-out' });
-  }
-
-  // Abundant burst of blush pink, dusty rose, sage, and cream petals from the card's edge as it lands
-  function burst() {
-    const colors = ['#F7D3DA', '#FCE3E8', '#EBAAB6', '#B7C6AF', '#FFF5F7', '#9CAF94'];
-    const n = 80;
-    for (let i = 0; i < n; i++) {
-      const s = document.createElement('span');
-      s.className = 'spark';
-      const a = (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.45;
-      const edgeScale = 0.88 + Math.random() * 0.14;
-      const x0 = L.cx + Math.cos(a) * (L.Cw / 2) * edgeScale;
-      const y0 = L.cy + Math.sin(a) * (L.Ch / 2) * edgeScale;
-      const d = 35 + Math.random() * 125;
-      const w = 6 + Math.random() * 10;
-      const driftY = 30 + Math.random() * 55;
-      Object.assign(s.style, {
-        left: x0 + 'px',
-        top: y0 + 'px',
-        width: w + 'px',
-        height: w * (0.68 + Math.random() * 0.25) + 'px',
-        background: colors[i % colors.length]
-      });
-      stage.appendChild(s);
-      const rot = Math.random() * 360;
-      const spin = (Math.random() > 0.5 ? 1 : -1) * (200 + Math.random() * 220);
-      s.animate([
-        { transform: `translate(-50%,-50%) scale(0) rotate(${rot}deg)`, opacity: 1 },
-        { transform: `translate(calc(-50% + ${Math.cos(a) * d * 0.58}px), calc(-50% + ${Math.sin(a) * d * 0.58}px)) scale(1.05) rotate(${rot + spin * 0.45}deg)`, opacity: 0.96, offset: 0.38 },
-        { transform: `translate(calc(-50% + ${Math.cos(a) * d}px), calc(-50% + ${Math.sin(a) * d + driftY}px)) scale(0.55) rotate(${rot + spin}deg)`, opacity: 0 }
-      ], {
-        duration: 1450 + Math.random() * 1100,
-        delay: Math.random() * 180,
-        easing: 'cubic-bezier(.2,.7,.3,1)'
-      }).finished.then(() => s.remove());
-    }
   }
 
   // Spawn a single gentle falling petal and remove it once its animation completes
