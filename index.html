@@ -300,7 +300,8 @@ body{
   const stage = $('stage'), env = $('env'), parts = $('parts'), flap = $('flap'), seal = $('seal'), sprig = $('sprig'),
         card = $('card'), hint = $('hint'), details = $('details');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let L = {}, state = 'closed', autoTimer;
+  let L = {}, state = 'closed', autoTimer, petalShowerTimer = null;
+  const petalColors = ['#F7D3DA', '#FCE3E8', '#EBAAB6', '#FFF5F7', '#C9D5C2', '#B7C6AF'];
 
   const tf = p => `translate(-50%,-50%) translate(${p.x}px,${p.y}px) scale(${p.s}) rotate(${p.r}deg)`;
   const flapT = d => `perspective(1400px) rotateX(${d}deg)`;
@@ -382,44 +383,101 @@ body{
     card.style.transform = tf(L.end);
     parts.style.visibility = 'hidden';
     burst();
+    startPetalShower();
     details.style.visibility = 'visible';
     run(details, [{ opacity: 0, transform: 'translate(-50%,12px)' }, { opacity: 1, transform: 'translate(-50%,0)' }],
         { duration: 700, delay: 150, easing: 'ease-out' });
   }
 
-  // Soft burst of blush pink, dusty rose, sage, and cream petals from the card's edge as it lands
+  // Abundant burst of blush pink, dusty rose, sage, and cream petals from the card's edge as it lands
   function burst() {
     const colors = ['#F7D3DA', '#FCE3E8', '#EBAAB6', '#B7C6AF', '#FFF5F7', '#9CAF94'];
-    const n = 34;
+    const n = 80;
     for (let i = 0; i < n; i++) {
       const s = document.createElement('span');
       s.className = 'spark';
-      const a = (i / n) * Math.PI * 2 + Math.random() * .3;
-      const x0 = L.cx + Math.cos(a) * L.Cw / 2 * .96, y0 = L.cy + Math.sin(a) * L.Ch / 2 * .96;
-      const d = 45 + Math.random() * 80, w = 7 + Math.random() * 8;
-      Object.assign(s.style, { left: x0 + 'px', top: y0 + 'px', width: w + 'px', height: w * .8 + 'px', background: colors[i % colors.length] });
+      const a = (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.45;
+      const edgeScale = 0.88 + Math.random() * 0.14;
+      const x0 = L.cx + Math.cos(a) * (L.Cw / 2) * edgeScale;
+      const y0 = L.cy + Math.sin(a) * (L.Ch / 2) * edgeScale;
+      const d = 35 + Math.random() * 125;
+      const w = 6 + Math.random() * 10;
+      const driftY = 30 + Math.random() * 55;
+      Object.assign(s.style, {
+        left: x0 + 'px',
+        top: y0 + 'px',
+        width: w + 'px',
+        height: w * (0.68 + Math.random() * 0.25) + 'px',
+        background: colors[i % colors.length]
+      });
       stage.appendChild(s);
       const rot = Math.random() * 360;
+      const spin = (Math.random() > 0.5 ? 1 : -1) * (200 + Math.random() * 220);
       s.animate([
         { transform: `translate(-50%,-50%) scale(0) rotate(${rot}deg)`, opacity: 1 },
-        { transform: `translate(calc(-50% + ${Math.cos(a) * d * .6}px), calc(-50% + ${Math.sin(a) * d * .6}px)) scale(1) rotate(${rot + 120}deg)`, opacity: 1, offset: .4 },
-        { transform: `translate(calc(-50% + ${Math.cos(a) * d}px), calc(-50% + ${Math.sin(a) * d + 40}px)) scale(.6) rotate(${rot + 260}deg)`, opacity: 0 }
-      ], { duration: 1500 + Math.random() * 800, easing: 'cubic-bezier(.2,.7,.3,1)' }).finished.then(() => s.remove());
+        { transform: `translate(calc(-50% + ${Math.cos(a) * d * 0.58}px), calc(-50% + ${Math.sin(a) * d * 0.58}px)) scale(1.05) rotate(${rot + spin * 0.45}deg)`, opacity: 0.96, offset: 0.38 },
+        { transform: `translate(calc(-50% + ${Math.cos(a) * d}px), calc(-50% + ${Math.sin(a) * d + driftY}px)) scale(0.55) rotate(${rot + spin}deg)`, opacity: 0 }
+      ], {
+        duration: 1450 + Math.random() * 1100,
+        delay: Math.random() * 180,
+        easing: 'cubic-bezier(.2,.7,.3,1)'
+      }).finished.then(() => s.remove());
+    }
+  }
+
+  // Spawn a single gentle falling petal and remove it once its animation completes
+  function spawnFallingPetal(initialDelay = 0) {
+    const box = $('petals');
+    if (!box) return;
+    const p = document.createElement('span');
+    p.className = 'petal';
+    const w = 8 + Math.random() * 9;
+    const duration = 12 + Math.random() * 11;
+    Object.assign(p.style, {
+      left: Math.random() * 100 + 'vw',
+      width: w + 'px',
+      height: w * 0.75 + 'px',
+      background: petalColors[Math.floor(Math.random() * petalColors.length)],
+      animationDuration: duration + 's',
+      animationDelay: initialDelay + 's',
+      opacity: 0.55 + Math.random() * 0.35
+    });
+    box.appendChild(p);
+    if (initialDelay >= 0) {
+      p.addEventListener('animationend', () => p.remove(), { once: true });
+      setTimeout(() => { if (p.isConnected) p.remove(); }, (duration + initialDelay + 1) * 1000);
+    }
+  }
+
+  // Continuous gentle shower spawning 2-3 new petals every second once opened
+  function startPetalShower() {
+    if (reduce) return;
+    stopPetalShower();
+    const spawnBatch = () => {
+      if (state !== 'open') return;
+      const count = Math.random() < 0.5 ? 2 : 3;
+      for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+          if (state === 'open') spawnFallingPetal(0);
+        }, i * 320 + Math.random() * 140);
+      }
+    };
+    spawnBatch();
+    petalShowerTimer = setInterval(spawnBatch, 1000);
+  }
+
+  function stopPetalShower() {
+    if (petalShowerTimer) {
+      clearInterval(petalShowerTimer);
+      petalShowerTimer = null;
     }
   }
 
   function petals() {
     if (reduce) return;
-    const box = $('petals'), colors = ['#F7D3DA', '#FCE3E8', '#EBAAB6', '#FFF5F7', '#C9D5C2'];
     const n = window.innerWidth < 600 ? 10 : 18;
     for (let i = 0; i < n; i++) {
-      const p = document.createElement('span');
-      p.className = 'petal';
-      const w = 8 + Math.random() * 9;
-      Object.assign(p.style, { left: Math.random() * 100 + 'vw', width: w + 'px', height: w * .75 + 'px',
-        background: colors[i % colors.length], animationDuration: 13 + Math.random() * 12 + 's',
-        animationDelay: -Math.random() * 25 + 's', opacity: .55 + Math.random() * .35 });
-      box.appendChild(p);
+      spawnFallingPetal(-Math.random() * 25);
     }
   }
 
@@ -429,11 +487,13 @@ body{
     hint.style.opacity = 0;
     card.style.zIndex = 10;
     card.style.transform = tf(L.end);
+    startPetalShower();
     details.style.visibility = 'visible'; details.style.opacity = 1;
   }
 
   function reset() {
     state = 'closed';
+    stopPetalShower();
     Object.assign(parts.style, { visibility: 'visible', opacity: 1, transform: 'none' });
     flap.style.transform = flapT(0); flap.style.zIndex = 4;
     Object.assign(seal.style, { transform: sealT(1), opacity: 1, animation: '' });
